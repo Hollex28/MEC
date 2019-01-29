@@ -1,0 +1,372 @@
+a = [1 2 3 ; 0 1 2 ; 4 5 6]
+
+a =
+
+     1     2     3
+     0     1     2
+     4     5     6
+
+a*
+ a*
+   
+{Error: Expression or statement is incomplete or incorrect.
+} 
+a'
+
+ans =
+
+     1     0     4
+     2     1     5
+     3     2     6
+
+a^-1
+[Warning: Matrix is singular to working precision.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.internal.math.mpower.viaMtimes', 'C:\Program Files\MATLAB\R2017b\toolbox\matlab\ops\+matlab\+internal\+math\+mpower\viaMtimes.m', 35)" style="font-weight:bold">matlab.internal.math.mpower.viaMtimes</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2017b\toolbox\matlab\ops\+matlab\+internal\+math\+mpower\viaMtimes.m',35,0)">line 35</a>)] 
+
+ans =
+
+   Inf   Inf   Inf
+   Inf   Inf   Inf
+   Inf   Inf   Inf
+
+1/a
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mrdivide')" style="font-weight:bold"> / </a>
+Matrix dimensions must agree.
+} 
+help in
+--- help for <strong>sym/in</strong> ---
+
+ <strong>in</strong> Symbolic predicate for elementhood.
+    R = <strong>in</strong>(X, SET) returns a symbolic Boolean expression that expresses that
+    X is an element of the set SET.
+    X must be an arithmetical expression, SET must be one of the character strings
+    'integer', 'rational', 'real', 'positive'
+
+help inv
+ <strong>inv</strong>    Matrix inverse.
+    <strong>inv</strong>(X) is the inverse of the square matrix X.
+    A warning message is printed if X is badly scaled or
+    nearly singular.
+ 
+    See also <a href="matlab:help slash">slash</a>, <a href="matlab:help pinv">pinv</a>, <a href="matlab:help cond">cond</a>, <a href="matlab:help condest">condest</a>, <a href="matlab:help lsqnonneg">lsqnonneg</a>, <a href="matlab:help lscov">lscov</a>.
+
+    <a href="matlab:doc inv">Reference page for inv</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('inv')">Other functions named inv</a>
+
+inv (a)
+[Warning: Matrix is singular to working precision.] 
+
+ans =
+
+   Inf   Inf   Inf
+   Inf   Inf   Inf
+   Inf   Inf   Inf
+
+for [i = 1 ; i<10; i++]
+ for [i = 1 ; i<10; i++]
+     
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+for (i = 1 ; i<10; i++)
+ for (i = 1 ; i<10; i++)
+            
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+for [i = 1 ; i<10; i++]
+ for [i = 1 ; i<10; i++]
+     
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+for i = 3
+i++
+ i++
+    
+{Error: Expression or statement is incomplete or incorrect.
+} 
+i--
+ i--
+    
+{Error: Expression or statement is incomplete or incorrect.
+} 
+i=i-1
+
+i =
+
+  -1.0000 + 1.0000i
+
+end
+ end
+ 
+{Error: Illegal use of reserved keyword "end".
+} 
+for i = 1 
+i<10
+;
+i++
+ i++
+    
+{Error: Expression or statement is incomplete or incorrect.
+} 
+end
+ end
+ 
+{Error: Illegal use of reserved keyword "end".
+} 
+for i = 1
+i<10;
+i++;
+ i++;
+    
+{Error: Expression or statement is incomplete or incorrect.
+} 
+for i=1:3
+b=i
+;
+end
+
+b =
+
+     1
+
+
+b =
+
+     2
+
+
+b =
+
+     3
+
+function (a,b) = Func1(c,d,e)
+ function (a,b) = Func1(c,d,e)
+ 
+{Error: Function definitions are not permitted in this
+context.
+} 
+function prueba = Func1(c,d,e)
+ function prueba = Func1(c,d,e)
+ 
+{Error: Function definitions are not permitted in this
+context.
+} 
+a(2)
+
+ans =
+
+     0
+
+a(3)
+
+ans =
+
+     4
+
+help rampa
+ UNTITLED Summary of this function goes here
+    Detailed explanation goes here
+
+rampa
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rampa', 'C:\Users\sersanc8\Documents\MATLAB\rampa.m', 4)" style="font-weight:bold">rampa</a> (<a href="matlab: opentoline('C:\Users\sersanc8\Documents\MATLAB\rampa.m',4,0)">line 4</a>)
+valor(0) = vi;
+} 
+rampa(0,10,10,12,1)
+{Subscript indices must either be real positive integers or
+logicals.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rampa', 'C:\Users\sersanc8\Documents\MATLAB\rampa.m', 4)" style="font-weight:bold">rampa</a> (<a href="matlab: opentoline('C:\Users\sersanc8\Documents\MATLAB\rampa.m',4,0)">line 4</a>)
+valor(0) = vi;
+} 
+v,t = rampa(0,10,10,12,1)
+{Undefined function or variable 'v'.
+} 
+vector = [1 3 5 6 8]
+
+vector =
+
+     1     3     5     6     8
+
+vector(1)
+
+ans =
+
+     1
+
+vector(5)
+
+ans =
+
+     8
+
+vector(6)
+{Index exceeds matrix dimensions.
+
+'vector' appears to be both a function and a variable. If
+this is unintentional, use 'clear vector' to remove the
+variable 'vector' from the workspace.
+} 
+vector(6) = 2
+
+vector =
+
+     1     3     5     6     8     2
+
+rampa(0,10,10,12,1)
+{Subscript indices must either be real positive integers or
+logicals.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rampa', 'C:\Users\sersanc8\Documents\MATLAB\rampa.m', 4)" style="font-weight:bold">rampa</a> (<a href="matlab: opentoline('C:\Users\sersanc8\Documents\MATLAB\rampa.m',4,0)">line 4</a>)
+valor(0) = vi;
+} 
+vector(0)
+{Subscript indices must either be real positive integers or
+logicals.
+
+'vector' appears to be both a function and a variable. If
+this is unintentional, use 'clear vector' to remove the
+variable 'vector' from the workspace.
+} 
+vector(1)
+
+ans =
+
+     1
+
+v,t = rampa(0,10,10,12,1)
+{Undefined function or variable 'v'.
+} 
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 12
+
+    10    10
+
+plot (ans)
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 12
+
+    10    10
+
+plot (ans)
+plot (ans)
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 12
+
+    10    10
+
+v,t = rampa(0,10,10,12,1)
+{Undefined function or variable 'v'.
+} 
+plot([0,1,2,3,4,5,6,7,8,9,10,11,12],ans)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Vectors must be the same length.
+} 
+plot([0,1,2,3,4,5,6,7,8,9,10,11],ans)
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 12
+
+    10    10
+
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 13
+
+    10    10    10
+
+rampa(0,10,10,12,1)
+
+ans =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 13
+
+    10    10    10
+
+[v,t] = rampa(0,10,10,12,1)
+
+v =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8    10
+
+  Columns 11 through 12
+
+    10    10
+
+
+t =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8     9
+
+  Columns 11 through 12
+
+    10    11
+
+figure,plot(v,t)
+[v,t] = rampa(0,10,10,12,.1)
+
+v =
+
+  Columns 1 through 6
+
+         0    0.1000    0.2000    0.3000    0.4000    0.5000
+
+  Columns 7 through 12
+
+    0.6000    0.7000    0.8000   10.0000   10.0000   10.0000
+
+
+t =
+
+  Columns 1 through 10
+
+     0     1     2     3     4     5     6     7     8     9
+
+  Columns 11 through 12
+
+    10    11
+
+figure,plot(v,t)
+figure,plot(t,v)
+diary off
