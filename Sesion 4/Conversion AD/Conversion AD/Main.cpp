@@ -6,14 +6,14 @@
 
 
 void main(void){
-
+	double lectura;
 	TaskHandle TareaEscritura;
 	int32 error = 0;
 	error = DAQmxCreateTask("TareaEscritura", &TareaEscritura);
 	if (error != 0){
 		printf("1");
 	}
-	error = DAQmxCreateAOVoltageChan(TareaEscritura, "Dev5/ao0","",-10,10,DAQmx_Val_Volts,NULL);
+	error = DAQmxCreateAIVoltageChan(TareaEscritura, "Dev5/ai0", "", DAQmx_Val_RSE, -10, 10, DAQmx_Val_Volts,NULL);
 	if (error != 0){
 		printf("2");
 	}
@@ -21,9 +21,12 @@ void main(void){
 	if (error != 0){
 		printf("3");
 	}
-	error = DAQmxWriteAnalogScalarF64(TareaEscritura, 0, -1, 0, NULL);
-	if (error != 0){
-		printf("4");
+	for (int i = 0; i <= 1000; i++){
+		error = DAQmxReadAnalogScalarF64(TareaEscritura, 0, &lectura, NULL);
+		if (error != 0){
+			printf("4");
+		}
+		else{ printf("iteracion Num %i  tiene valor %f \n", i,lectura);}
 	}
 	error = DAQmxStopTask(TareaEscritura);
 	if (error != 0){
@@ -33,8 +36,7 @@ void main(void){
 	if (error != 0){
 		printf("6");
 	}
-	else{ printf("funca"); }
-	Sleep(5000);
+	Sleep(1000);
 
 
 }
