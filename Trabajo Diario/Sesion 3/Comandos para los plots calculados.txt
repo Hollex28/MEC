@@ -1,0 +1,201 @@
+%-- 10/03/2019 17:48 --%
+load('velocidad_tension.mat')
+load('tension_posicion.mat')
+load('puntoFinal.mat')
+PuntoFinal
+PuntoFinal(datos)
+load('velocidad_tension.mat')
+PuntoFinal(datos)
+MinimosQuadrados
+MinimosQuadrados(datos)
+plot(datos(1,:),datos(2,:))
+vector = [1]
+vector = vector + [2]
+vector = vector + [1 2]
+clear
+load('velocidad_tension.mat')
+load('puntoFinal.mat')
+load('minimosQuadrados.mat')
+vectorx=datos(1,:)
+for i = 1:length(vectorx)
+aux = 1.2148* i + 0.4369
+vectory = [vectory aux]
+end
+vectory = 1.2148* vectorx[1] + 0.4369
+vectory = 1.2148* vectorx(1) + 0.4369
+for i = 1:length(vectorx)
+aux = 1.2148* i + 0.4369
+vectory = [vectory aux]
+end
+calPF = vectory
+vectory = 1.3045* vectorx(1) - 0.2380
+for i = 1:length(vectorx)
+aux = 1.3045* i + 0.2380
+vectory = [vectory aux]
+end
+plot(vectorx,datos(2,:))
+hold
+calMQ = vectory
+hold
+plot(vectorx,datos(2,:),'r')
+plot(vectorx,calPF,'b')
+calPF = calPF(2 :)
+vectory = 1.3045* vectorx(1) - 0.2380
+for i = 2:length(vectorx)
+aux = 1.3045* i + 0.2380
+vectory = [vectory aux]
+end
+calMQ = vectory
+vectory = 1.2148* vectorx(1) + 0.4369
+for i = 2:length(vectorx)
+aux = 1.2148* i + 0.4369
+vectory = [vectory aux]
+end
+calPF = vectory
+plot(vectorx,calPF,'b')
+hold
+plot(vectorx,calMQ,'g')
+plot(vectorx,datos(2,:),'r')
+vectory = datos(2,:)
+calPF
+vectorx
+m = 1.2148
+n=0.4369
+y= m*vectorx(1)+n
+vectorx(1)
+vector x
+vectorx
+y= m*vectorx(1)+n
+y= m*vectorx(2)+n
+calPF
+clear
+load('velocidad_tension.mat')
+m = 1.2148
+n=0.4369
+vectorx=datos(1,:)
+y= m*vectorx(1)+n
+calPF =[y]
+y= m*vectorx(2)+n
+calPF =[calPF y]
+y= m*vectorx(3)+n
+calPF =[calPF y]
+y= m*vectorx(4)+n
+calPF =[calPF y]
+y= m*vectorx(5)+n
+calPF =[calPF y]
+y= m*vectorx(6)+n
+calPF =[calPF y]
+y= m*vectorx(7)+n
+calPF =[calPF y]
+y= m*vectorx(8)+n
+calPF =[calPF y]
+y= m*vectorx(9)+n
+calPF =[calPF y]
+y= m*vectorx(10)+n
+calPF =[calPF y]
+y= m*vectorx(11)+n
+calPF =[calPF y]
+y= m*vectorx(12)+n
+calPF =[calPF y]
+y= m*vectorx(13)+n
+calPF =[calPF y]
+y= m*vectorx(14)+n
+calPF =[calPF y]
+y= m*vectorx(15)+n
+load('minimosQuadrados.mat')
+load('puntoFinal.mat')
+m=1.3045
+n=-0.2380
+y= m*vectorx(1)+n
+calMQ = [y]
+y= m*vectorx(2)+n
+calMQ = [calMQ y]
+y= m*vectorx(3)+n
+calMQ = [calMQ y]
+y= m*vectorx(4)+n
+calMQ = [calMQ y]
+y= m*vectorx(5)+n
+calMQ = [calMQ y]
+y= m*vectorx(6)+n
+calMQ = [calMQ y]
+y= m*vectorx(7)+n
+calMQ = [calMQ y]
+y= m*vectorx(8)+n
+calMQ = [calMQ y]
+y= m*vectorx(9)+n
+calMQ = [calMQ y]
+y= m*vectorx(10)+n
+calMQ = [calMQ y]
+y= m*vectorx(11)+n
+calMQ = [calMQ y]
+y= m*vectorx(12)+n
+calMQ = [calMQ y]
+y= m*vectorx(13)+n
+calMQ = [calMQ y]
+y= m*vectorx(14)+n
+calMQ = [calMQ y]
+plot(vectorx,datos(2,:))
+hold
+plot(vectorx,datos(2,:),'r')
+hold
+plot(vectorx,calPF,'b')
+plot(vectorx,calMQ,'g')
+load('tension_posicion.mat')
+for i = 1:length(vectorx)
+i
+end
+for i = 2:length(vectorx)
+i
+end
+PuntoFinal(datos)
+minimosQuadradosPos = ans
+PuntoFinalPos = ans
+MinimosQuadrados(datos)
+minimosQuadradosPos = ans
+m=0.3009
+n=-2.9671
+y= m*vectorx(1)+n
+for i = 2:length(vectorx)
+end
+calPosPF =[y]
+for i = 2:length(vectorx)
+y= m*vectorx(i)+n
+calPosPF =[calPosPF y]
+end
+m=-0.3018
+n=-0.3592
+y= m*vectorx(1)+n
+calPosMQ = [y]
+for i = 2:length(vectorx)
+y= m*vectorx(i)+n
+calPosMQ =[calPosMQ y]
+end
+hold
+vectorx(datos(1,:))
+vectorx=datos(1,:)
+PuntoFinal(datos)
+MinimosQuadrados(datos)
+m=0.3009
+n=-2.9671
+y= m*vectorx(1)+n
+calPosPF = [y]
+for i = 2:length(vectorx)
+y= m*vectorx(i)+n
+calPosPF =[calPosPF y]
+end
+m=-0.3018
+n=-0.3592
+y= m*vectorx(1)+n
+calPosMQ =[y]
+for i = 2:length(vectorx)
+y= m*vectorx(i)+n
+calPosMQ =[calPosMQ y]
+end
+hold
+plot(vectorx,datos(2,:))
+hold
+plot(vectorx,datos(2,:),'r')
+hold
+plot(vectorx,calPosPF,'b')
+plot(vectorx,calPosMQ,'g')
+hold
