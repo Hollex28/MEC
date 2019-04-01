@@ -1,0 +1,98 @@
+load data111.txt
+plot(data111(:,1))
+t=0:0.02:1.98
+plot(t,data111(:,1))
+grid
+load Pos_iden.txt
+plot(t,Pos_iden(:,1))
+grid
+m=(Pos_iden(100,1)-Pos_iden(50,1))/(t(100)-t(50))
+Kpos = m/40
+salida = m * t
+plot(salida)
+plot(t,Pos_iden(:,1))
+hold on
+plot(t,salida,'r')
+grid
+t1= 1.786533
+t2= 1.710308
+tpos=t1-t2
+nu_pos_cont = Kpos
+de_pos_cont = [1 tpos 0]
+taupos=t1-t2
+de_pos_cont = [1 taupos 0]
+de_pos_cont = [taupos 1 0]
+plot(t,simu_pos_cont,'r')
+plot(t,salida,'r')
+hold on
+plot(t,simu_pos_cont,'r')
+plot(t,salida,'r')
+hold off
+hold on
+plot(t,simu_pos_cont,'r')
+plot(t,Pos_iden(:,1),'b')
+load Vel_Iden.txt
+hold off
+plot(t,Vel_Iden)
+vf = mean(Vel_Iden(40:100,1))
+Kvel=vf/40
+v2 = vf*0.632
+grid
+tauvel=0.0837
+nu_vel_cont = Kvel
+de_vel_cont = [tauvel 1]
+hold on
+plot(t,simu_vel_cont,'r')
+[nu_pos_disc,de_pos_disc] = c2dm(nu_pos_cont,de_pos_cont,0.02,'zoh')
+[nu_vel_disc,de_vel_disc] = c2dm(nu_vel_cont,de_vel_cont,0.02,'zoh')
+hold off
+hold on
+plot(t,simu_vel_cont,'r')
+plot(t,simu_vel_disc,'b')
+hold off
+hold on
+plot(t,simu_pos_cont,'r')
+plot(t,simu_pos_disc,'b')
+hold off
+plot(t,simu_pos_disc,'b')
+hold on
+plot(t,simu_pos_cont,'r')
+plot(t,simu_pos_disc,'b')
+kc =20
+Kc =20
+Kc =40
+Kc =400
+Kc =4000
+Kc =200
+Kc =300
+Kc =100
+Kc =10
+Kc =100
+Kc =50
+Kc =300
+Kc = 800
+Kc = 500
+Kc = 650
+Kc = 700
+Kc = 720
+Kc = 710
+Kc = 715
+figure,plot(tout,pos_bc)
+tc=2,74 - 2,56
+tc=2.74 - 2.56
+plot(t,Vel_Iden)
+t1= tf * 0.28
+t1 = vf *0.28
+tp = 1.5 * (t2 - t1)
+t0 = t2 - tp +0.01
+grid
+t1 = 0.0369
+t2 = 0.0392
+tp = 1.5 * (t2 - t1)
+t0 = t2 - tp +0.01
+v2 = vf * 0.63
+v1 = vf * 0.28
+t2=0.0834
+t1 = 0.037
+tp = 1.5 * (t2 - t1)
+t0 = t2 - tp +0.01
