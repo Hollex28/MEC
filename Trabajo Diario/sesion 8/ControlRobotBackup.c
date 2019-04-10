@@ -1,7 +1,6 @@
 #pragma config(Sensor, S3,     lightSensor,         sensorLightActive)
 #pragma config(Sensor, S4,     sonarSensor,         sensorSONAR)
 #pragma config(Sensor, S1,     touchSensor,         sensorTouch)
-#pragma config(Sensor, S2,     touchSensor2,         sensorTouch)
 //Variables Globales
 bool MarchaAtrasz = false;
 bool Recogiendo = false;
@@ -12,11 +11,9 @@ bool Recogiendo = false;
 
 
 //======================================================================================================
-task OjodeSauron() { //Debajo de MarchaAtras,Sensores
+task Buscar() { //Debajo de MarchaAtras,Sensores
   //StopTask(MarchaAtras);
-bool avance = false;
-Recogiendo = false;
-nxtDisplayCenteredBigTextLine(0, "SAURON");
+bool avance = false
   while(1){
     if(avance){
       motor[motorA] = 70;
@@ -35,56 +32,40 @@ nxtDisplayCenteredBigTextLine(0, "SAURON");
   }
   return;
 }
+
 //==========================================================================================================
 task MarchaRecojer(){
-  nxtDisplayCenteredBigTextLine(0, "RECOGIENDO");
-  StopTask(OjodeSauron);
+  StopTask(Buscar);
   Recogiendo = true;
   while(1){
-    motor[motorA] = 70;
-    motor[MotorB]= 70;
+    motor[motorA] = 60;
+    motor[MotorB]= 60;
   }
 }
 
 //========================================================================================================
 
 task EmpujadEspartanos(){
-  nxtDisplayCenteredBigTextLine(0, "ESPARTA!");
-  StopTask(OjodeSauron);
+  StopTask(Buscar);
   StopTask(MarchaRecojer);
   Recogiendo = true;
   while(1){
     motor[motorA] = 100;
-    motor[MotorB]= 100;
+    motor[MotorB]=100;
   }
 }
 
 //========================================================================================================
 task MarchaAtras(){
-  nxtDisplayCenteredBigTextLine(0, "MarchaAtras");
   StopTask(MarchaRecojer);
-  StopTask(OjodeSauron);
+  StopTask(Buscar);
   StopTask(EmpujadEspartanos);
-  motor[motorA] = - 50;
-  motor[MotorB]= - 50;
+  motor[motorA] = -50;
+  motor[MotorB]= -50;
   wait10Msec(200);
   Recogiendo = false;
   MarchaAtrasz=false;
-  startTask(OjodeSauron);
-
-}
-//==================================================
-task EsUnaTrampa(){
-  nxtDisplayCenteredBigTextLine(0, "Trampa");
-  Recogiendo = false;
-  motor[motorA] = 100;
-  motor[MotorB]= 60;
-  wait10Msec(200);
-  motor[motorA] = -60;
-  motor[MotorB]= -100;
-  wait10Msec(100);
-  StartTask(OjodeSauron);
-
+  startTask(Buscar);
 
 }
 
@@ -96,42 +77,22 @@ task Sensores() //Debajo de MarchaAtras y Marcha Recoger y encima de Main
    while(true)   // While the reading is greater than 45 (a light surface):  NOTE- make this less than to detect light surfaces.
    {
       wait1Msec(20);
-      ////////////////////////////////////////////////////
-
       if (SensorValue[lightSensor] > 45){
         if(MarchaAtrasz==false){
-          StopTask(EsUnaTrampa);
           startTask(MarchaAtras);
           MarchaAtrasz=true;
         }
       }
-      ///////////////////////////////////////////////////
-
       if (SensorValue[sonarSensor] < distance_in_cm){
         if(MarchaAtrasz == false && Recogiendo == false){
             startTask(MarchaRecojer);
             PlaySound(soundBeepBeep);
           }
       }
-      //////////////////////////////////////////////
-
       if (SensorValue(touchSensor) == 1)    // While the Touch Sensor is inactive (hasn't been pressed):
       {
         startTask(EmpujadEspartanos);
       }
-
-      //////////////////////////////
-
-       if (SensorValue(touchSensor2) == 1)    // While the Touch Sensor is inactive (hasn't been pressed):
-      {
-          StopTask(MarchaRecojer);
-          StopTask(OjodeSauron);
-          StopTask(EmpujadEspartanos);
-
-          StopTask(MarchaAtras);
-          startTask(EsUnaTrampa);
-      }
-
     }
 }
 
@@ -140,7 +101,7 @@ task Sensores() //Debajo de MarchaAtras y Marcha Recoger y encima de Main
 
 task main()
 {
-  StartTask(OjodeSauron);                             // Start Task Buscar.
+  StartTask(Buscar);                             // Start Task Buscar.
   StartTask(Sensores);                             //Activar Sensores
 
   while(true)
